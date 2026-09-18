@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Harendra Singh — Senior Full-Stack Software Developer specializing in Node.js, React.js, TypeScript, PHP, Vue.js, AWS and scalable web applications." />
+  <title>Harendra Singh | Senior Full-Stack Developer</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <style>
+    :root{
+      --bg:#07111f; --bg2:#0b1729; --card:rgba(15,29,48,.72);
+      --text:#eaf2ff; --muted:#9fb0c7; --line:rgba(255,255,255,.09);
+      --accent:#62d7ff; --accent2:#8b7cff; --shadow:0 24px 70px rgba(0,0,0,.32);
+      --max:1180px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%,rgba(98,215,255,.12),transparent 28%),
+        radial-gradient(circle at 85% 15%,rgba(139,124,255,.13),transparent 28%),
+        linear-gradient(180deg,var(--bg),#050b14 70%);
+      color:var(--text); line-height:1.6; overflow-x:hidden;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .nav{
+      position:fixed;top:0;left:0;right:0;z-index:100;
+      backdrop-filter:blur(18px);background:rgba(5,12,22,.68);
+      border-bottom:1px solid var(--line)
+    }
+    .nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:19px;font-weight:800;letter-spacing:-.6px}.logo span{color:var(--accent)}
+    .logo span{color:var(--accent)}
+    .nav-links{display:flex;gap:26px;align-items:center}
+    .nav-links a{font-size:14px;color:var(--muted);transition:.25s}
+    .nav-links a:hover{color:var(--text)}
+    .menu{display:none;border:1px solid var(--line);background:transparent;color:var(--text);padding:8px 10px;border-radius:10px}
+    section{padding:105px 0}
+    .hero{min-height:100vh;display:flex;align-items:center;padding-top:130px;position:relative}
+    .grid-bg{position:absolute;inset:72px 0 0;opacity:.25;pointer-events:none;
+      background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+      background-size:60px 60px;
+      mask-image:linear-gradient(to bottom,black,transparent 85%)
+    }
+    .hero-content{position:relative;z-index:1;max-width:850px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid rgba(98,215,255,.25);
+      border-radius:999px;color:#bcecff;background:rgba(98,215,255,.07);font-size:13px;margin-bottom:24px}
+    .dot{width:8px;height:8px;border-radius:50%;background:#55e39b;box-shadow:0 0 14px #55e39b}
+    h1{font-size:clamp(48px,8vw,88px);line-height:.98;letter-spacing:-4px;max-width:900px}
+    .gradient{background:linear-gradient(90deg,var(--accent),#a79cff 70%);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{margin:26px 0;max-width:720px;color:var(--muted);font-size:18px}
+    .actions{display:flex;gap:13px;flex-wrap:wrap}
+    .btn{padding:12px 18px;border-radius:12px;border:1px solid var(--line);transition:.25s;display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px}
+    .btn.primary{background:linear-gradient(135deg,var(--accent),#7b82ff);color:#06101d;border:0}
+    .btn:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(98,215,255,.12)}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:55px;max-width:850px}
+    .stat{padding:17px;border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:16px;transition:.3s}
+    .stat:hover{transform:translateY(-5px);border-color:rgba(98,215,255,.3);background:rgba(98,215,255,.05)}
+    .stat strong{display:block;font-size:25px}.stat span{font-size:12px;color:var(--muted)}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+    .kicker{color:var(--accent);font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    h2{font-size:clamp(30px,4vw,46px);letter-spacing:-1.5px;margin-top:7px}
+    .section-head p{max-width:530px;color:var(--muted)}
+    .about-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:var(--shadow);transition:.3s}
+    .card:hover{transform:translateY(-5px);border-color:rgba(98,215,255,.22)}
+    .card p{color:var(--muted)}
+    .focus-list{display:grid;gap:12px;margin-top:20px}
+    .focus-item{display:flex;gap:12px;align-items:center;padding:13px;border-radius:13px;background:rgba(255,255,255,.035)}
+    .icon{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:rgba(98,215,255,.09);color:var(--accent);flex:none}
+    .skills{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+    .skill{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.045);border:1px solid var(--line);font-size:13px;color:#cdd8e8;transition:.2s}
+    .skill:hover{color:var(--accent);border-color:rgba(98,215,255,.35);transform:scale(1.04)}
+    .timeline{position:relative;margin-top:10px}
+    .timeline:before{content:"";position:absolute;left:10px;top:10px;bottom:10px;width:1px;background:var(--line)}
+    .job{position:relative;padding-left:42px;margin-bottom:18px}
+    .job-dot{position:absolute;left:4px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px rgba(98,215,255,.08)}
+    .job-card{padding:23px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.025);transition:.3s}
+    .job-card:hover{background:rgba(255,255,255,.045);transform:translateX(4px);border-color:rgba(98,215,255,.2)}
+    .job-top{display:flex;justify-content:space-between;gap:20px}
+    .job h3{font-size:18px}.company{color:var(--accent)}
+    .date{color:var(--muted);font-size:13px;white-space:nowrap}
+    .job ul{margin:13px 0 0 18px;color:var(--muted)}
+    .project-line{margin-top:14px;padding:12px 14px;border-left:2px solid var(--accent);background:rgba(98,215,255,.035);border-radius:0 10px 10px 0;color:#c8d5e8;font-size:14px}
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .project{min-height:260px;position:relative;overflow:hidden}
+    .project:after{content:"";position:absolute;width:180px;height:180px;border-radius:50%;right:-80px;top:-80px;background:rgba(98,215,255,.08);transition:.4s}
+    .project:hover:after{transform:scale(1.5)}
+    .project-number{font-size:12px;color:var(--accent);font-weight:800;letter-spacing:2px}
+    .project h3{font-size:23px;margin:14px 0 8px}
+    .project p{color:var(--muted);font-size:14px}
+    .project .skills{margin-top:20px}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .contact-item{padding:20px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.025);transition:.25s}
+    .contact-item:hover{transform:translateY(-4px);border-color:rgba(98,215,255,.25)}
+    .contact-item small{display:block;color:var(--muted);margin-bottom:4px}.contact-item a{font-weight:700}
+    footer{padding:35px 0;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+    .reveal.show{opacity:1;transform:none}
+    #top{position:fixed;right:20px;bottom:20px;width:42px;height:42px;border-radius:50%;border:1px solid var(--line);
+      background:rgba(10,22,38,.8);color:var(--text);cursor:pointer;opacity:0;pointer-events:none;transition:.25s}
+    #top.show{opacity:1;pointer-events:auto}
+
+    .skill-groups{display:grid;gap:28px}
+    .skill-group h3{font-size:15px;margin-bottom:13px;color:#dce8f7}
+    .tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .tech{min-height:68px;display:flex;align-items:center;gap:11px;padding:13px 14px;
+      border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:15px;
+      color:#d4dfef;font-size:13px;font-weight:650;transition:.25s}
+    .tech i{font-size:27px;line-height:1}
+    .tech:hover{transform:translateY(-5px) scale(1.015);border-color:rgba(98,215,255,.35);
+      background:rgba(98,215,255,.055);box-shadow:0 12px 28px rgba(0,0,0,.18);color:#fff}
+    @media(max-width:800px){
+      .nav-links{display:none;position:absolute;top:72px;left:0;right:0;padding:20px;background:#081322;flex-direction:column;border-bottom:1px solid var(--line)}
+      .nav-links.open{display:flex}.menu{display:block}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .about-grid,.contact{grid-template-columns:1fr}
+      .projects{grid-template-columns:1fr}.tech-grid{grid-template-columns:repeat(2,1fr)}
+      .section-head{display:block}.section-head p{margin-top:12px}
+      h1{letter-spacing:-2.5px}
+      .job-top{display:block}.date{display:block;margin-top:5px}
+    }
+    @media(max-width:480px){
+      .tech-grid{grid-template-columns:1fr}
+      .container{width:min(calc(100% - 26px),var(--max))}
+      section{padding:78px 0}.hero{padding-top:105px}
+      .stats{gap:8px}.stat{padding:13px}
+      .stat strong{font-size:21px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#home">Harendra Singh<span>.</span></a>
+      <button class="menu" aria-label="Open menu">☰</button>
+      <div class="nav-links">
+        <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Projects</a>
+        <a href="#skills">Skills</a><a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="grid-bg"></div>
+      <div class="container hero-content reveal">
+        <div class="eyebrow"><span class="dot"></span> Available for new opportunities</div>
+        <h1>Building <span class="gradient">scalable</span><br/>digital products.</h1>
+        <p>
+          I'm Harendra Singh, a Senior Full-Stack Software Developer with 8+ years of experience
+          building maintainable, high-performance web applications, APIs, backend systems and cloud solutions.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">View Projects ↗</a>
+          <a class="btn" href="#contact">Let's Connect</a>
+          <a class="btn" href="https://drive.google.com/file/d/1RUSUeRuxBcuvh9s7F6EU6tVAiBWXFPNq/view?usp=drive_link" target="_blank" rel="noopener">Resume ↗</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>8+</strong><span>Years experience</span></div>
+          <div class="stat"><strong>Full Stack</strong><span>Frontend + Backend</span></div>
+          <div class="stat"><strong>AWS</strong><span>Cloud & serverless</span></div>
+          <div class="stat"><strong>AI</strong><span>AI-assisted development</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container reveal">
+        <div class="section-head">
+          <div><div class="kicker">01 / About</div><h2>Engineering with purpose.</h2></div>
+          <p>Focused on clean architecture, reliable APIs, strong UX and solutions that create measurable business value.</p>
+        </div>
+        <div class="about-grid">
+          <div class="card">
+            <p>
+              Senior Full-Stack Software Developer specializing in Node.js, React.js, PHP, JavaScript and Vue.js.
+              Experienced with scalable web applications, RESTful APIs, backend architecture, database systems,
+              AWS services and third-party integrations. Also experienced in leading development teams and using
+              AI-assisted development tools such as Claude AI to accelerate development and improve code quality.
+            </p>
+            <div class="skills">
+              <span class="skill">Node.js</span><span class="skill">React.js</span><span class="skill">TypeScript</span>
+              <span class="skill">JavaScript</span><span class="skill">PHP</span><span class="skill">Vue.js</span>
+              <span class="skill">AWS</span><span class="skill">REST APIs</span>
+            </div>
+          </div>
+          <div class="card">
+            <div class="kicker">Core Focus</div>
+            <div class="focus-list">
+              <div class="focus-item"><div class="icon">⌘</div><b>Scalable Architecture</b></div>
+              <div class="focus-item"><div class="icon">⚡</div><b>Performance Optimization</b></div>
+              <div class="focus-item"><div class="icon">☁</div><b>Cloud & Serverless</b></div>
+              <div class="focus-item"><div class="icon">◈</div><b>Team Leadership</b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container reveal">
+        <div class="section-head">
+          <div><div class="kicker">02 / Experience</div><h2>Where I've built.</h2></div>
+          <p>From PHP applications to enterprise full-stack systems, APIs, real-time platforms and cloud services.</p>
+        </div>
+        <div class="timeline">
+          <div class="job">
+            <span class="job-dot"></span>
+            <div class="job-card">
+              <div class="job-top"><div><h3>Full Stack Software Developer <span class="company">· Wegile</span></h3><div class="date">Chandigarh</div></div><div class="date">04/2026 – Present</div></div>
+              <ul>
+                <li>Leading enterprise-scale web application development with Node.js, React.js, Vite, TypeScript and MySQL.</li>
+                <li>Managing frontend and backend feature work and Jira tickets.</li>
+                <li>Architecting and optimizing backend systems for large-scale real estate transactions, contracts, income and expenses.</li>
+                <li>Collaborating with cross-functional teams for API integration and scalable system design.</li>
+              </ul>
+              <div class="project-line"><b>Kenlo Locação:</b> Enterprise real estate management platform. Full-stack work across React.js/Vite/TypeScript, Node.js and MySQL, including property-management features, UI/UX improvements and backend query optimization.</div>
+            </div>
+          </div>
+
+          <div class="job">
+            <span class="job-dot"></span>
+            <div class="job-card">
+              <div class="job-top"><div><h3>Sr Software Developer <span class="company">· techHindustan</span></h3><div class="date">Sahibzada Ajit Singh Nagar</div></div><div class="date">01/2021 – 10/2024</div></div>
+              <ul>
+                <li>Led developers designing and implementing scalable applications using Node.js, Laravel, React.js, JavaScript and Vue.js.</li>
+                <li>Architected and optimized backend systems for performance and reliability.</li>
+                <li>Built an NPM library for learning and integrated services and APIs with cross-functional teams.</li>
+              </ul>
+              <div class="project-line"><b>Projects:</b> Top Challenge (AWS Lambda, DynamoDB, Node.js, Socket.io) · Zucora (React.js, Redux Toolkit) · HyperWolf (Blaze APIs, MongoDB, Google APIs) · UnderWork (Laravel, SQL) · Tom Garni (Node.js, MongoDB, React, AWS, S3, Stripe).</div>
+            </div>
+          </div>
+
+          <div class="job">
+            <span class="job-dot"></span>
+            <div class="job-card">
+              <div class="job-top"><div><h3>Software Developer <span class="company">· Debut Infotech</span></h3><div class="date">Sahibzada Ajit Singh Nagar</div></div><div class="date">04/2019 – 01/2021</div></div>
+              <ul>
+                <li>Implemented a microservices architecture to improve system modularity and reduce component dependencies.</li>
+                <li>Collaborated with designers to create visually appealing interfaces.</li>
+                <li>Developed APIs that automated data collection and analysis using Yii, Laravel and Node.js.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="job">
+            <span class="job-dot"></span>
+            <div class="job-card">
+              <div class="job-top"><div><h3>PHP Developer <span class="company">· Midrif Info Solution</span></h3><div class="date">Sahibzada Ajit Singh Nagar</div></div><div class="date">05/2017 – 04/2019</div></div>
+              <ul>
+                <li>Designed and developed PHP applications, enhancing existing systems and delivering new features.</li>
+                <li>Worked with clients to gather requirements and deliver tailored solutions.</li>
+                <li>Worked on Core PHP, JavaScript, CodeIgniter and WordPress projects.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container reveal">
+        <div class="section-head">
+          <div><div class="kicker">03 / Projects</div><h2>Selected work.</h2></div>
+          <p>Real-world products spanning real estate, live quizzes, insurance, e-commerce, logistics and restaurant management.</p>
+        </div>
+        <div class="projects">
+          <article class="card project"><div class="project-number">01 — ENTERPRISE</div><h3>Kenlo Locação</h3><p>Real estate management platform handling property contracts, income/expense tracking and financial transactions.</p><div class="skills"><span class="skill">React</span><span class="skill">Vite</span><span class="skill">TypeScript</span><span class="skill">Node.js</span><span class="skill">MySQL</span></div></article>
+          <article class="card project"><div class="project-number">02 — REAL-TIME</div><h3>Top Challenge</h3><p>Live television quiz platform using serverless functions, NoSQL storage, Node.js and real-time Socket.io communication.</p><div class="skills"><span class="skill">AWS Lambda</span><span class="skill">DynamoDB</span><span class="skill">Node.js</span><span class="skill">Socket.io</span></div></article>
+          <article class="card project"><div class="project-number">03 — INSURANCE</div><h3>Zucora</h3><p>Insurance-plan platform for home furniture and kitchen appliances, including a React.js and Redux Toolkit super admin.</p><div class="skills"><span class="skill">React.js</span><span class="skill">Redux Toolkit</span><span class="skill">Admin UI</span></div></article>
+          <article class="card project"><div class="project-number">04 — E-COMMERCE</div><h3>HyperWolf</h3><p>E-commerce application with backend APIs, MongoDB, Blaze APIs and Google geolocation/polygon integrations.</p><div class="skills"><span class="skill">Node.js</span><span class="skill">MongoDB</span><span class="skill">Google APIs</span></div></article>
+          <article class="card project"><div class="project-number">05 — LOGISTICS</div><h3>UnderWork</h3><p>Shipping-management workflow covering POs, bookings, shipment documents and container information.</p><div class="skills"><span class="skill">Laravel</span><span class="skill">SQL</span><span class="skill">Backend</span></div></article>
+          <article class="card project"><div class="project-number">06 — RESTAURANT</div><h3>Tom Garni</h3><p>Restaurant management platform with super-admin controls, restaurant operations, orders, payments, bonuses and storage.</p><div class="skills"><span class="skill">Node.js</span><span class="skill">MongoDB</span><span class="skill">React</span><span class="skill">AWS S3</span><span class="skill">Stripe</span></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container reveal">
+        <div class="section-head">
+          <div><div class="kicker">04 / Skills</div><h2>My toolkit.</h2></div>
+          <p>A broad full-stack toolkit covering application development, databases, cloud infrastructure, integrations and collaboration.</p>
+        </div>
+        <div class="card">
+          <div class="skill-groups">
+            <div class="skill-group"><h3>Frontend</h3><div class="tech-grid">
+              <span class="tech"><i class="devicon-react-original colored"></i>React.js</span>
+              <span class="tech"><i class="devicon-nextjs-plain"></i>Next.js</span>
+              <span class="tech"><i class="devicon-vuejs-plain colored"></i>Vue.js</span>
+              <span class="tech"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
+              <span class="tech"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+              <span class="tech"><i class="devicon-redux-original colored"></i>Redux Toolkit</span>
+              <span class="tech"><i class="devicon-html5-plain colored"></i>HTML</span>
+              <span class="tech"><i class="devicon-css3-plain colored"></i>CSS</span>
+              <span class="tech"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+            </div></div>
+            <div class="skill-group"><h3>Backend & APIs</h3><div class="tech-grid">
+              <span class="tech"><i class="devicon-nodejs-plain colored"></i>Node.js</span>
+              <span class="tech"><i class="devicon-express-original"></i>Express</span>
+              <span class="tech"><i class="devicon-nestjs-plain colored"></i>NestJS</span>
+              <span class="tech"><i class="devicon-php-plain colored"></i>PHP</span>
+              <span class="tech"><i class="devicon-laravel-original colored"></i>Laravel</span>
+              <span class="tech"><i class="devicon-yii-plain colored"></i>Yii</span>
+              <span class="tech"><i class="devicon-graphql-plain colored"></i>GraphQL</span>
+              <span class="tech"><i class="devicon-socketio-original"></i>Socket.io</span>
+            </div></div>
+            <div class="skill-group"><h3>Databases</h3><div class="tech-grid">
+              <span class="tech"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+              <span class="tech"><i class="devicon-postgresql-plain colored"></i>PostgreSQL</span>
+              <span class="tech"><i class="devicon-mongodb-plain colored"></i>MongoDB</span>
+              <span class="tech"><i class="devicon-amazonwebservices-plain-wordmark colored"></i>DynamoDB</span>
+              <span class="tech"><i class="devicon-firebase-plain colored"></i>Firebase</span>
+            </div></div>
+            <div class="skill-group"><h3>Cloud, DevOps & Tools</h3><div class="tech-grid">
+              <span class="tech"><i class="devicon-amazonwebservices-plain-wordmark colored"></i>AWS</span>
+              <span class="tech"><i class="devicon-amazonwebservices-plain colored"></i>Lambda</span>
+              <span class="tech"><i class="devicon-amazonwebservices-plain colored"></i>S3</span>
+              <span class="tech"><i class="devicon-docker-plain colored"></i>Docker</span>
+              <span class="tech"><i class="devicon-git-plain colored"></i>Git</span>
+              <span class="tech"><i class="devicon-github-original"></i>GitHub</span>
+              <span class="tech">⚡ React Query</span>
+              <span class="tech">🤖 Claude AI</span>
+              <span class="tech">🔗 REST APIs</span>
+              <span class="tech">⚙️ Microservices</span>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container reveal">
+        <div class="section-head">
+          <div><div class="kicker">05 / Contact</div><h2>Let's build something.</h2></div>
+          <p>Open to full-stack and senior software development opportunities.</p>
+        </div>
+        <div class="contact">
+          <div class="contact-item"><small>Email</small><a href="mailto:harendrachauhan@gmail.com">harendrachauhan@gmail.com</a></div>
+          <div class="contact-item"><small>Phone</small><a href="tel:+918954174002">+91 8954174002</a></div>
+          <div class="contact-item"><small>Location</small><span>Chandigarh, India</span></div>
+          <div class="contact-item"><small>Profiles</small>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <a href="https://www.linkedin.com/in/harendra-singh-chauhan" target="_blank" rel="noopener">LinkedIn ↗</a>
+              <a href="https://stackoverflow.com/users/9057664/harendra-singh" target="_blank" rel="noopener">Stack Overflow ↗</a>
+            </div>
+          </div>
+          <div class="contact-item"><small>Resume</small>
+            <a href="https://drive.google.com/file/d/1RUSUeRuxBcuvh9s7F6EU6tVAiBWXFPNq/view?usp=drive_link" target="_blank" rel="noopener">View Resume ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Harendra Singh</span>
+      <span>Senior Full-Stack Software Developer</span>
+    </div>
+  </footer>
+  <button id="top" aria-label="Back to top">↑</button>
+
+  <script>
+    const menu = document.querySelector('.menu');
+    const links = document.querySelector('.nav-links');
+    menu.addEventListener('click', () => links.classList.toggle('open'));
+    document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if(entry.isIntersecting) entry.target.classList.add('show'); });
+    }, {threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    const topBtn = document.getElementById('top');
+    window.addEventListener('scroll', () => topBtn.classList.toggle('show', window.scrollY > 600));
+    topBtn.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
